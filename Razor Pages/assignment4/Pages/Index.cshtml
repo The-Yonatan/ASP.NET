@@ -1,0 +1,15 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Home Page";
+
+    int year = DateTime.Now.Year - 1994;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Northwind Traders</h1>
+    <img class="img-fluid" src="~/image/northwind.png" />
+    <p>Proudly distributing fine food products around the world for @year years.</p>
+</div>
+

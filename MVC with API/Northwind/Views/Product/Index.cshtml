@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Northwind.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.productName)
+
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.unitsInStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.unitsOnOrder)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                
+                    @Html.ActionLink( @item.productName , "Details", "Product" , new { id=item.productId })
+            </td>
+               
+           
+          
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.unitsInStock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unitsOnOrder)
+            </td>
+           
+          
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.productId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.productId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.productId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
